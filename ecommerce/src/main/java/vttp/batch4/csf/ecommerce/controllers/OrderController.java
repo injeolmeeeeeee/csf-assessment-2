@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class OrderController {
   // If this method is changed, any assessment task relying on this method will
   // not be marked
   @PostMapping("/order")
-  public ResponseEntity<String> postOrder(Order order) {
+  public ResponseEntity<String> postOrder(@RequestBody Order order) {
     System.out.println(order);
     // TODO Task 3
 	 try {

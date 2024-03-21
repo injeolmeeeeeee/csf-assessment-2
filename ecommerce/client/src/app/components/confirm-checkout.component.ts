@@ -68,15 +68,18 @@ export class ConfirmCheckoutComponent implements OnInit, OnDestroy {
       })
     })
     let checkoutCart = {
-      orderId: null,
-      date: null,
+      // orderId: null,
+      // date: null,
       ...this.checkoutForm.value,
       cart: { lineItems: checkoutCartItems }
     } as Order;
 
     this.checkoutSub = this.productSvc.checkout(checkoutCart)
     .subscribe({
-      next: () => this.router.navigate(["/"]),
+      next: () => {
+        this.cartStore.clearCart();
+        this.router.navigate(["/"]);
+      },
       error: (err) => alert(err.error.message)
     })
   }

@@ -29,7 +29,7 @@
     <tr>
       <td></td>
       <td>
-        <button type="submit" [disabled]="!itemCount">Place Order</button>
+        <button type="submit" [disabled]="!itemCount || checkoutForm.invalid">Place Order</button>
       </td>
     </tr>
   </table>
